@@ -7,10 +7,12 @@ html, body, *
 }
 h1
 {
+
     display:flex;
     justify-content: center;
     align-items: center;
     font-size:3rem;
+    margin:10px 3px 10px 3px;
 }
 body
 {
@@ -18,5 +20,35 @@ body
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
+    align-items: center;
+    
+}
+input[type="text"]
+{
+    height:4rem;
+    width:12rem;
+    border-radius: 5px;
+    text-align: center;
+    border-color: white;
+    box-shadow: 10px 10px 10px rgba(234, 180, 220, 0.5);
+    font-size: 2rem;
+
+}
+button
+{
+    height:3rem;
+    width:10rem;
+    border-radius: 5px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin:10px;
+    border-color: white;
+    box-shadow: 10px 10px 10px rgba(255, 208, 242,0.3)
+}
+form
+{
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    justify-content: center;
 
 }

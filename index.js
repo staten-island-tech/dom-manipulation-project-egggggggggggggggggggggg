@@ -1,10 +1,13 @@
 const DOMSelectors = {
-  type: document.querySelector(".Name"),
-  name: document.querySelector(".Type"),
-  weight: document.querySelector(".Weight"),
-  form: document.querySelector(".form"),
-  button: document.querySelector(".submit"),
+  type: document.querySelector(".Name").value,
+  name: document.querySelector(".Type").value,
+  weight: document.querySelector(".Weight").value,
+  form: document.querySelector("form"),
+  button: document.querySelector(".btn"),
 };
-DOMSelectors.button.addEventListener("click", () => function test() {});
 
+console.log(DOMSelectors.button);
 /* event.preventDefault = no refresh*/
+DOMSelectors.form.addEventListener("submit", function (event) {
+  event.preventDefault();
+});
