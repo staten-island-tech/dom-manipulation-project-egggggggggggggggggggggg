@@ -15,12 +15,20 @@ DOMSelectors.form.addEventListener("submit", function (event) {
       console.log("Please enter something");
     }
   DOMSelectors.container.insertAdjacentHTML(
-    "beforeend",
+    "afterbegin",
     `<div class="card">
     <h2 class="card_header">${name}</h2>
 
     <img src="${image}" alt="${name}" class= "card_img">
     </div>`
   );
-  console.log(name, image);
+  document.querySelector(".Name").value = "";
+  document.querySelector(".IMAGE_URL").value="";
+
 });
+DOMSelectors.container.addEventListener("click", function(event)
+{
+  const element_selected = event.target;
+  console.log(element_selected)
+}
+)

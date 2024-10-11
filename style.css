@@ -70,7 +70,7 @@ form {
     box-shadow: 10px 10px 10px black;
     margin: 1rem 1rem;
     justify-content: center;
-    align-item: center;
+    align-items: center;
     background-color: white;
     text-align: center;
 }
