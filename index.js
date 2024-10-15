@@ -5,7 +5,6 @@ const DOMSelectors = {
 };
 
 console.log(DOMSelectors);
-/* event.preventDefault = no refresh*/
 DOMSelectors.form.addEventListener("submit", function (event) {
   event.preventDefault();
   const name = document.querySelector(".Name").value;
@@ -29,6 +28,21 @@ DOMSelectors.form.addEventListener("submit", function (event) {
 DOMSelectors.container.addEventListener("click", function(event)
 {
   const element_selected = event.target;
-  console.log(element_selected)
-}
-)
+  element_selected.addEventListener('mousedown', ()=> {
+      console.log('Hold down for 2 seconds to delete')
+      
+      const Timer = setTimeout(()=>
+        {
+          element_selected.remove();
+        },2000)
+      element_selected.addEventListener("mouseup",()=>
+      {
+        Timer.clearTimeout();
+        element_selected.classList.add
+      })
+      element_selected.addEventListener("mouseleave",()=>
+      {
+        Timer.clearTime();
+      })
+    })
+  })
