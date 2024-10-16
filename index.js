@@ -34,15 +34,16 @@ DOMSelectors.container.addEventListener("click", function(event)
       const Timer = setTimeout(()=>
         {
           element_selected.remove();
+          element_selected.classList.add("holding");
         },2000)
       element_selected.addEventListener("mouseup",()=>
       {
         Timer.clearTimeout();
-        element_selected.classList.add
+        element_selected.classList.remove("holding")
       })
       element_selected.addEventListener("mouseleave",()=>
       {
-        Timer.clearTime();
+        Timer.clearTimeout();
       })
     })
   })
