@@ -80,3 +80,34 @@ form {
     width: 80%;
     margin: 0 10px;
 }
+
+.holding {
+    animation: shaking 0.125s infinite;
+    transform-origin: center;
+}
+
+@keyframes shaking {
+    0% {
+        transform: rotate(6deg);
+    }
+
+    20% {
+        transform: rotate(-4deg);
+    }
+
+    40% {
+        transform: rotate(2deg);
+    }
+
+    60% {
+        transform: rotate(-2deg);
+    }
+
+    80% {
+        transform: rotate(4deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

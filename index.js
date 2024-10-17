@@ -27,23 +27,25 @@ DOMSelectors.form.addEventListener("submit", function (event) {
 });
 DOMSelectors.container.addEventListener("click", function(event)
 {
-  const element_selected = event.target;
+  const element_selected = event.target.closest('.card');
+
+  console.log("this is the element target",element_selected.classList.contains("container"))
   element_selected.addEventListener('mousedown', ()=> {
       console.log('Hold down for 2 seconds to delete')
-      
+      element_selected.classList.add("holding");
       const Timer = setTimeout(()=>
         {
           element_selected.remove();
-          element_selected.classList.add("holding");
         },2000)
       element_selected.addEventListener("mouseup",()=>
       {
-        Timer.clearTimeout();
+        clearTimeout(Timer);
         element_selected.classList.remove("holding")
       })
       element_selected.addEventListener("mouseleave",()=>
       {
-        Timer.clearTimeout();
+        element_selected.classList.remove("holding")
+        clearTimeout(Timer);
       })
     })
   })
