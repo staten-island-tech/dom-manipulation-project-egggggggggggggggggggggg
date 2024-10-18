@@ -12,7 +12,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 10rem;
     margin: 10px 3px 10px 3px;
 }
 
@@ -82,28 +82,20 @@ form {
 }
 
 .holding {
-    animation: shaking 0.125s infinite;
+    animation: shaking 0.5s infinite;
     transform-origin: center;
 }
 
 @keyframes shaking {
     0% {
-        transform: rotate(6deg);
+        transform: rotate(4deg);
     }
 
-    20% {
+    33% {
         transform: rotate(-4deg);
     }
 
-    40% {
-        transform: rotate(2deg);
-    }
-
-    60% {
-        transform: rotate(-2deg);
-    }
-
-    80% {
+    66% {
         transform: rotate(4deg);
     }
 

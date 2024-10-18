@@ -33,18 +33,31 @@ DOMSelectors.container.addEventListener("click", function(event)
   element_selected.addEventListener('mousedown', ()=> {
       console.log('Hold down for 2 seconds to delete')
       element_selected.classList.add("holding");
+      const speedUp1= setTimeout(()=> 
+        {
+          element_selected.style.animation = "shaking 0.25s infinite"
+          
+        }, 500
+      ) 
+      const speedUp2= setTimeout(()=> 
+        {
+          element_selected.style.animation = "shaking 0.125s infinite"
+        }, 1000
+      ) 
       const Timer = setTimeout(()=>
         {
           element_selected.remove();
         },2000)
       element_selected.addEventListener("mouseup",()=>
       {
-        clearTimeout(Timer);
+        clearTimeout(Timer,speedUp1,speedUp2);
         element_selected.classList.remove("holding")
       })
       element_selected.addEventListener("mouseleave",()=>
       {
         element_selected.classList.remove("holding")
+        element_selected.classList.remove("speedUp1")
+        element_selected.classList.remove("speedUp2")
         clearTimeout(Timer);
       })
     })
