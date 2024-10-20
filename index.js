@@ -28,37 +28,30 @@ DOMSelectors.form.addEventListener("submit", function (event) {
 DOMSelectors.container.addEventListener("click", function(event)
 {
   const element_selected = event.target.closest('.card');
-
-  console.log("this is the element target",element_selected.classList.contains("container"))
   element_selected.addEventListener('mousedown', ()=> {
       console.log('Hold down for 2 seconds to delete')
       element_selected.classList.add("holding");
-      const speedUp1= setTimeout(()=> 
-        {
-          element_selected.style.animation = "shaking 0.25s infinite"
-          
-        }, 500
-      ) 
-      const speedUp2= setTimeout(()=> 
-        {
-          element_selected.style.animation = "shaking 0.125s infinite"
-        }, 1000
-      ) 
-      const Timer = setTimeout(()=>
-        {
-          element_selected.remove();
-        },2000)
-      element_selected.addEventListener("mouseup",()=>
-      {
-        clearTimeout(Timer,speedUp1,speedUp2);
-        element_selected.classList.remove("holding")
-      })
-      element_selected.addEventListener("mouseleave",()=>
-      {
-        element_selected.classList.remove("holding")
-        element_selected.classList.remove("speedUp1")
-        element_selected.classList.remove("speedUp2")
-        clearTimeout(Timer);
-      })
+      const animations = [
+        {time:500, animation:  "shaking 0.25s infinite" },
+        {time:1000, animation:"shaking 0.125s infinite"},
+        {time:1500, animation:"shaking 0.09 infinite"}
+      ]
+      const timers = animations.map(({duration, animation}, index) => 
+        setTimeout(()=>element_selected.style.animation=animation,duration)
+      )
+      const deleteElement = setTimeout(()=> {
+        element_selected.remove();
+      },2000);
+
+      const clearTimers = () => {
+        timers.forEach(clearTimeout);
+        clearTimeout(deleteElement);
+        element_selected.classList.remove("holding");
+        element_selected.style.animation="";
+      }
+      element_selected.addEventListener("mouseleave", clearTimers);
+      element_selected.addEventListener("mouseup", clearTimers);
     })
   })
+ 
+
