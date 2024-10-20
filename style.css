@@ -74,18 +74,19 @@ form {
     background-color: white;
     text-align: center;
 }
-
-
 .card_img {
     width: 80%;
     margin: 0 10px;
 }
-
+.card_header
+{ 
+    font-size: 2rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
 .holding {
     animation: shaking 0.5s infinite;
     transform-origin: center;
 }
-
 @keyframes shaking {
     0% {
         transform: rotate(4deg);
@@ -101,5 +102,25 @@ form {
 
     100% {
         transform: rotate(0deg);
+    }
+}
+@media(max-width:1200px)
+{
+    .card{
+        width: 30%;
+    }
+}
+@media(max-width:800px)
+{
+    .card
+    {
+        width:40%;
+    }
+}
+@media(max-width:600px)
+{
+    .card
+    {
+        width:70%
     }
 }
