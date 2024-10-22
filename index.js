@@ -24,8 +24,7 @@ DOMSelectors.form.addEventListener("submit", function (event) {
 
 DOMSelectors.container.addEventListener("click", function (event) {
   const element_selected = event.target.closest(".card");
-  if (!element_selected) return; // Ensure it's a card
-
+  if (!element_selected) return; 
   const handleMouseDown = () => {
     const message = document.createElement("div");
     message.className = "delete-message";
